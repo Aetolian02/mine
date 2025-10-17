@@ -162,7 +162,7 @@ function fifth_function(x; a, b)
     return a*x+b
 end
 
-fifth_function(2,2,1) # ERROR, you need to provide the names of arguments!
+#fifth_function(2,2,1) # ERROR, you need to provide the names of arguments!
 
 fifth_function(2, a=2, b=1)
 
@@ -360,7 +360,7 @@ y .* x
 # NOTE: the dimensions of the passed objects must match:
 y = [1,2,3]
 x = [2,2]
-y.*x # error
+#y.*x # error
 
 y = [1,2,3]
 x = [2,2,2]
