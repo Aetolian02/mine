@@ -14,17 +14,18 @@ product = x_deam .* y_deam
 covariance_xy = sum(product)/(length(product)-1)
 
 println(covariance_xy)
-#Subject 2 
+
+#Subject 2 - mask
 
 function analyze_absences(n_absences)
     n = length(n.abscenes)
-    mask = Vector{Int}(0,n)
+    mask = zeros(n)
     for i in 1:n
         if (n_abscenes[i]>3)
             mask[i] = 1
         end
     end
-    absent = sum(mask)
+    absent = zeros(n)
     absent_students = Vector{Int}(0,n)
     for i in 1:n
         if mask[i]>0
@@ -33,4 +34,18 @@ function analyze_absences(n_absences)
     end
     avarage = sum(absent_students)/absent
     return absent, avarage
+end
+
+#Subject 3 - matrix
+
+n_rows = 4
+n_cols = 3
+center_i = 2
+center_j = 2
+
+A = zeros(n_rows,n_cols)
+for i in 1:n_rows
+    for j in 1:n_cols
+        A[i,j] = sqrt((i-center_i)^2+(j-center_j)^2)
+    end
 end
